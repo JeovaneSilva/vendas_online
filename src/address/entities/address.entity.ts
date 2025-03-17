@@ -1,4 +1,5 @@
 // import { CityEntity } from '../../city/entities/city.entity';
+import { CityEntity } from 'src/city/entities/city.entity';
 import { UserEntity } from '../../user/entities/user.entity';
 import {
   Column,
@@ -38,13 +39,13 @@ export class AddressEntity {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-//   @ManyToOne(() => UserEntity, (user) => user.addresses)
-//   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
-//   user?: UserEntity;
+  @ManyToOne(() => UserEntity, (user) => user.addresses)
+  @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
+  user?: UserEntity;
 
-//   @ManyToOne(() => CityEntity, (city) => city.addresses)
-//   @JoinColumn({ name: 'city_id', referencedColumnName: 'id' })
-//   city?: CityEntity;
+  @ManyToOne(() => CityEntity, (city) => city.addresses)
+  @JoinColumn({ name: 'city_id', referencedColumnName: 'id' })
+  city?: CityEntity;
 
 //   @OneToMany(() => OrderEntity, (order) => order.address)
 //   orders?: OrderEntity[];
